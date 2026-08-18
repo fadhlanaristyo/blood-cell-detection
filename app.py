@@ -255,7 +255,7 @@ else:
 
             # ---- results section ----
             section_heading("03", "Hasil Deteksi", "Objek yang berhasil ditemukan oleh model")
-            st.image(result_image_rgb, use_container_width=True)
+            st.image(result_image_rgb, width=400)
 
             counts = {"wbc": 0, "rbc": 0, "plt": 0}
             rows = []
