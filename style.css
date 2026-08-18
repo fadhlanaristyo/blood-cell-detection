@@ -1,3 +1,9 @@
+/* ==========================================================
+   BloodCell AI — stylesheet
+   Palette is drawn from real Giemsa-stain microscopy colors:
+   WBC = violet, RBC = crimson, Platelet = amber
+   ========================================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root {
@@ -58,158 +64,7 @@ html, body, [class*="css"] {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 8px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-faint); }
 
-/* ---------- sidebar ---------- */
-
-section[data-testid="stSidebar"] {
-    background: var(--bg-alt);
-    border-right: 1px solid var(--border-soft);
-}
-
-section[data-testid="stSidebar"] > div {
-    padding-top: 1.4rem;
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 0 0.2rem 1rem 0.2rem;
-}
-
-.brand-mark {
-    width: 40px;
-    height: 40px;
-    border-radius: var(--radius-sm);
-    background: linear-gradient(135deg, var(--rbc), var(--wbc));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #fff;
-    letter-spacing: 0.02em;
-    flex-shrink: 0;
-}
-
-.brand-name {
-    font-family: var(--font-display);
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.2;
-}
-
-.brand-subtitle {
-    font-size: 0.72rem;
-    color: var(--text-faint);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
-
-.sidebar-line {
-    height: 1px;
-    background: var(--border-soft);
-    margin: 0.4rem 0 1.1rem 0;
-}
-
-.menu-label {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    color: var(--text-faint);
-    margin: 0 0 0.6rem 0.2rem;
-}
-
-.menu-space { margin-top: 1.6rem; }
-
-.side-menu {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 0.62rem 0.7rem;
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    margin-bottom: 0.25rem;
-    border: 1px solid transparent;
-    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-}
-
-.side-menu:hover {
-    background: var(--surface);
-    color: var(--text);
-}
-
-.side-menu.active {
-    background: var(--rbc-soft);
-    border-color: rgba(214, 49, 74, 0.35);
-    color: var(--text);
-}
-
-.menu-icon {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    color: var(--text-faint);
-    width: 20px;
-}
-
-.side-menu.active .menu-icon { color: var(--rbc); }
-
-.model-info {
-    background: var(--surface);
-    border: 1px solid var(--border-soft);
-    border-radius: var(--radius-md);
-    padding: 0.9rem 1rem;
-}
-
-.model-title {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--wbc);
-    margin-bottom: 0.55rem;
-    letter-spacing: 0.02em;
-}
-
-.model-row {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.78rem;
-    padding: 0.28rem 0;
-    color: var(--text-faint);
-    border-top: 1px solid var(--border-soft);
-}
-
-.model-row:first-of-type { border-top: none; }
-
-.model-row strong {
-    color: var(--text-muted);
-    font-weight: 500;
-    font-family: var(--font-mono);
-}
-
-.sidebar-bottom { margin-top: 2rem; }
-
-.sidebar-footer {
-    padding: 0.9rem 0.2rem 0.2rem 0.2rem;
-    border-top: 1px solid var(--border-soft);
-}
-
-.footer-title {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    margin-bottom: 0.15rem;
-}
-
-.footer-text {
-    font-size: 0.7rem;
-    color: var(--text-faint);
-    line-height: 1.5;
-}
-
-/* ---------- topbar ---------- */
+/* ---------- topbar (brand + status, single-page layout) ---------- */
 
 .topbar {
     display: flex;
@@ -220,12 +75,34 @@ section[data-testid="stSidebar"] > div {
     gap: 0.6rem;
 }
 
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--rbc), var(--wbc));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #fff;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+}
+
 .topbar-small {
     font-family: var(--font-mono);
     font-size: 0.7rem;
     letter-spacing: 0.14em;
     color: var(--text-faint);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
 }
 
 .topbar-title {
