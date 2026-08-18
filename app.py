@@ -12,10 +12,9 @@ from ultralytics import YOLO
 # ----------------------------------------------------------------------
 
 st.set_page_config(
-    page_title="BloodCell AI",
+    page_title="BloodCell",
     page_icon="🩸",
     layout="wide",
-    initial_sidebar_state="expanded",
 )
 
 try:
@@ -90,81 +89,19 @@ def section_heading(number, title, subtitle, extra_class=""):
 
 
 # ----------------------------------------------------------------------
-# Sidebar
-# ----------------------------------------------------------------------
-
-with st.sidebar:
-    st.markdown(
-        """
-        <div class="brand">
-            <div class="brand-mark">BC</div>
-            <div>
-                <div class="brand-name">BloodCell AI</div>
-                <div class="brand-subtitle">Detection System</div>
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown("<div class='sidebar-line'></div>", unsafe_allow_html=True)
-    st.markdown("<div class='menu-label'>MAIN MENU</div>", unsafe_allow_html=True)
-
-    st.markdown(
-        """
-        <div class="side-menu active">
-            <span class="menu-icon">01</span>
-            <span>Dashboard</span>
-        </div>
-        <div class="side-menu">
-            <span class="menu-icon">02</span>
-            <span>Blood Cell Detection</span>
-        </div>
-        <div class="side-menu">
-            <span class="menu-icon">03</span>
-            <span>Detection History</span>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown("<div class='menu-label menu-space'>MODEL</div>", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <div class="model-info">
-            <div class="model-title">YOLOv8</div>
-            <div class="model-row"><span>Framework</span><strong>Ultralytics</strong></div>
-            <div class="model-row"><span>Classes</span><strong>3</strong></div>
-            <div class="model-row"><span>Task</span><strong>Object Detection</strong></div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown("<div class='sidebar-bottom'></div>", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <div class="sidebar-footer">
-            <div class="footer-title">Blood Cell Detection</div>
-            <div class="footer-text">YOLOv8 Object Detection System</div>
-            <div class="footer-text">Teknik Informatika</div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-
-# ----------------------------------------------------------------------
-# Topbar
+# Topbar (brand + status — single-page layout, no sidebar navigation)
 # ----------------------------------------------------------------------
 
 status_label = "Model Ready" if model is not None else "Model Error"
 st.markdown(
     f"""
     <div class="topbar">
-        <div>
-            <div class="topbar-small">AI OBJECT DETECTION</div>
-            <div class="topbar-title">Blood Cell Analysis</div>
+        <div class="topbar-brand">
+            <div class="brand-mark">BC</div>
+            <div>
+                <div class="topbar-small">OBJECT DETECTION</div>
+                <div class="topbar-title">Blood Cell Analysis</div>
+            </div>
         </div>
         <div class="topbar-status">
             <span class="status-dot"></span>
@@ -445,7 +382,7 @@ st.markdown(
     <div class="page-footer">
         <div class="footer-line"></div>
         <div class="footer-content">
-            <span>BloodCell AI</span>
+            <span>BloodCell</span>
             <span>YOLOv8 Object Detection</span>
             <span>Teknik Informatika</span>
         </div>
